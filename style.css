@@ -12,7 +12,7 @@
     transform: translateY(0);
   }
   20% {
-    transform: translateY(-80%);
+    transform: translateY(-40%);
   }
   40% {
     transform: translateY(0);
@@ -21,14 +21,23 @@
     transform: translateY(0);
   }
   70% {
-    transform: translateY(80%);
+    transform: translateY(35%);
   }
   90% {
     transform: translateY(0);
   }
 }
+@keyframes rotateZ {
+  25% {
+    transform: rotateZ(20deg);
+  }
+  75% {
+    transform: rotateZ(-25deg);
+  }
+}
 * {
   box-sizing: border-box;
+  max-width: 100%;
 }
 
 html,
@@ -94,11 +103,13 @@ header h2 abbr {
   position: relative;
   z-index: 1;
   padding-top: 32.82051%;
+  overflow: hidden;
 }
 .summary p {
   padding: 30px 5.12821% 0;
   margin: 0;
   background: #FFF8E1;
+  z-index: 3;
 }
 .summary p abbr {
   text-decoration: none;
@@ -110,7 +121,7 @@ header h2 abbr {
 .summary::before {
   content: "";
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   left: 0;
   top: 0;
   width: 100%;
@@ -124,7 +135,7 @@ header h2 abbr {
   background-image: url("./images/leaf_1.svg");
   content: "";
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   top: 5.265%;
   width: 25.64103%;
   padding-top: 25.64103%;
@@ -132,30 +143,36 @@ header h2 abbr {
   background-repeat: no-repeat;
   animation: rotating 12s 1s linear infinite;
 }
-.summary p:first-child::before {
+.summary p:first-child {
+  position: relative;
+  z-index: 3;
+}
+.summary p:nth-child(2)::before {
   left: 37.69231%;
   background-image: url("./images/leaf_2.svg");
   content: "";
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   top: 5.265%;
   width: 25.64103%;
   padding-top: 25.64103%;
   background-size: contain;
   background-repeat: no-repeat;
+  transform-origin: center bottom;
+  animation: rotateZ 12s 1s ease-in-out infinite;
 }
-.summary p:first-child::after {
+.summary p:nth-child(2)::after {
   right: 3.6%;
   background-image: url("./images/leaf_3.svg");
   content: "";
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   top: 5.265%;
   width: 25.64103%;
   padding-top: 25.64103%;
   background-size: contain;
   background-repeat: no-repeat;
-  animation: scroll 15s 1s linear infinite;
+  animation: scroll 12s 1s ease-in-out infinite;
 }
 
 .preamble {
@@ -169,6 +186,24 @@ header h2 abbr {
 }
 .preamble p {
   margin-top: 15px;
+}
+
+.supporting {
+  padding-top: 365px;
+  background: url("./images/support_bg.jpg") top no-repeat;
+}
+
+.explanation, .participation {
+  padding: 30px 20px 0;
+}
+.explanation h3, .participation h3 {
+  font-family: Inika, serif;
+  font-size: 48px;
+  line-height: 100%;
+  color: #DB7906;
+}
+.explanation p, .participation p {
+  margin-top: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

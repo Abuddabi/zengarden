@@ -28,7 +28,7 @@
     }
 
     20% {
-        transform: translateY(-80%);
+        transform: translateY(-40%);
     }
 
     40% {
@@ -40,10 +40,20 @@
     }
 
     70% {
-        transform: translateY(80%);
+        transform: translateY(35%);
     }
 
     90% {
         transform: translateY(0);
+    }
+}
+
+@keyframes rotateZ {
+    25% {
+        transform: rotateZ(20deg);
+    }
+
+    75% {
+        transform: rotateZ(-25deg);
     }
 }

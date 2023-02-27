@@ -53,7 +53,7 @@ header {
     @mixin leafs_style {
         content: '';
         position: absolute;
-        z-index: 3;
+        z-index: 2;
         top: 5.265%;
         width: $leaf_size;
         padding-top: $leaf_size;
@@ -63,10 +63,12 @@ header {
     position: relative;
     z-index: 1;
     padding-top: $padding_top;
+    overflow: hidden;
     p {
         padding: 30px $mobile_content_padding 0;
         margin: 0;
         background: #FFF8E1;
+        z-index: 3;
         abbr {
             text-decoration: none;
         }
@@ -78,7 +80,7 @@ header {
     &::before {
         content: '';
         position: absolute;
-        z-index: 2;
+        z-index: 3;
         left: 0;
         top: 0;
         width: 100%;
@@ -94,16 +96,22 @@ header {
         animation: rotating 12s 1s linear infinite;
     }
     p:first-child {
+        position: relative;
+        z-index: 3;
+    }
+    p:nth-child(2) {
         &::before {
             left: 37.69231%;
             background-image: url('./images/leaf_2.svg');
             @include leafs_style;
+            transform-origin: center bottom;
+            animation: rotateZ 12s 1s ease-in-out infinite;
         }
         &::after {
             right: 3.6%;
             background-image: url('./images/leaf_3.svg');
             @include leafs_style;
-            animation: scroll 15s 1s linear infinite;
+            animation: scroll 12s 1s ease-in-out infinite;
         }
     }
 }
@@ -116,5 +124,23 @@ header {
     }
     p {
         margin-top: 15px;
+    }
+}
+
+.supporting {
+    padding-top: 365px;
+    background: url('./images/support_bg.jpg') top no-repeat;
+}
+
+.explanation, .participation {
+    padding: 30px 20px 0;
+
+    h3 {
+        @include headers-style;
+        color: $orange;
+    }
+
+    p {
+        margin-top: 10px;
     }
 }
