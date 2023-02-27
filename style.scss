@@ -1,66 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inika&family=Inter&display=swap');
-$green: #20615B;
-$orange: #DB7906;
-$font_color: #2B2B2B;
-$mobile_content_width: 350px;
-$mobile_content_padding: 5.12821%;
-$desktop_content_width: 1215px;
-$desktop_content_padding: 353px;
-@mixin font-inika {
-    font-family: Inika, serif;
-}
-
-@mixin font-basic {
-    font-family: Inter, sans-serif;
-}
-
-@mixin headers-style {
-    font-family: Inika, serif;
-    font-size: 48px;
-    line-height: 100%;
-}
-
-@keyframes rotating {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateY(0);
-    }
-    20% {
-        transform: translateY(-80%);
-    }
-    40% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(0);
-    }
-    70% {
-        transform: translateY(80%);
-    }
-    90% {
-        transform: translateY(0);
-    }
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    height: 100%;
-}
+@import './variables';
+@import './mixins';
+@import './reset';
 
 body {
-    margin: 0;
     * {
         @include font-basic;
         font-size: 17px;
@@ -69,13 +12,6 @@ body {
         font-style: normal;
         color: $font_color;
     }
-}
-
-h1,
-h2,
-h3,
-p {
-    margin: 0;
 }
 
 .page-wrapper {
@@ -135,7 +71,7 @@ header {
             text-decoration: none;
         }
     }
-    p+p {
+    p + p {
         padding-top: 20px;
         padding-bottom: 30px;
     }
